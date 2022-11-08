@@ -1,5 +1,8 @@
 // by Marius Versteegen, 2022
 
+#ifndef TI_LASERGAME_UTILS_CLOCKPIN
+#define TI_LASERGAME_UTILS_CLOCKPIN
+
 #include "driver/ledc.h"
 #include "driver/periph_ctrl.h"
 
@@ -55,3 +58,5 @@ namespace crt
         }
     };
 }; // end namespace crt
+
+#endif
