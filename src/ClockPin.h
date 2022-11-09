@@ -55,6 +55,7 @@ namespace crt
         void disable()
         {
             ledc_timer_pause(ledcMode, ledcTimer);
+            gpio_set_level((gpio_num_t)gpio, false);
         }
     };
 }; // end namespace crt
