@@ -55,13 +55,12 @@ namespace crt
         void enable()
         {
             ledc_set_duty(ledcMode, ledcChannel, 1);
-            ledc_timer_resume(ledcMode, ledcTimer);
+            //ledc_timer_resume(ledcMode, ledcTimer);
         }
 
         void disable()
         {
-            ledc_timer_pause(ledcMode, ledcTimer);
-            ledc_timer_rst(ledcMode, ledcTimer);
+            //ledc_timer_pause(ledcMode, ledcTimer);
             ledc_set_duty(ledcMode, ledcChannel, 0);
         }
 
