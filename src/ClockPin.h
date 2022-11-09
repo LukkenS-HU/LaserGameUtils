@@ -44,12 +44,12 @@ namespace crt
                     .channel = ledcChannel,
                     .intr_type = LEDC_INTR_DISABLE,
                     .timer_sel = ledcTimer,
-                    .duty = 1,
+                    .duty = 0,
                     .hpoint = 0
             };
             ledc_channel_config(&channel_config);
 
-            ledc_timer_pause(ledcMode, ledcTimer); // pause initially
+            //ledc_timer_pause(ledcMode, ledcTimer); // pause initially
         }
 
         void enable()
