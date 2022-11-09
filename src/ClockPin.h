@@ -54,7 +54,7 @@ namespace crt
 
         void enable()
         {
-            ledc_set_duty(ledcMode, ledcChannel, 50);
+            ledc_set_duty(ledcMode, ledcChannel, 1);
             ledc_timer_resume(ledcMode, ledcTimer);
         }
 
