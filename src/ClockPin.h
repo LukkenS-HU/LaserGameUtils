@@ -23,6 +23,8 @@ namespace crt
             periph_module_enable(PERIPH_LEDC_MODULE);
 
             initialize();
+
+            disable(); // pause initially
         }
 
         void initialize()
@@ -44,24 +46,21 @@ namespace crt
                     .channel = ledcChannel,
                     .intr_type = LEDC_INTR_DISABLE,
                     .timer_sel = ledcTimer,
-                    .duty = 0,
+                    .duty = 1,
                     .hpoint = 0
             };
             ledc_channel_config(&channel_config);
-
-            //ledc_timer_pause(ledcMode, ledcTimer); // pause initially
         }
 
         void enable()
         {
-            ledc_set_duty(ledcMode, ledcChannel, 1);
-            //ledc_timer_resume(ledcMode, ledcTimer);
+            ledc_timer_resume(ledcMode, ledcTimer);
         }
 
         void disable()
         {
-            //ledc_timer_pause(ledcMode, ledcTimer);
-            ledc_set_duty(ledcMode, ledcChannel, 0);
+            ledc_timer_pause(ledcMode, ledcTimer);
+            ledc_timer_rst(ledcMode, ledcTimer);
         }
 
         void stop()
